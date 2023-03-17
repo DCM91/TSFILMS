@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import usePost from "../utils/usePost";
 
 const AddFilm = (): JSX.Element => {
+
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [year, setYear] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [image1, setImage1] = useState("");
+  const [reload, setReload] = useState(false);
 
+  useEffect(() => {
+    if (reload) {
+      window.location.reload();
+    }
+  }, [reload]);
+  const handleAddFilm = () => {
+    setReload(true);
+  };
   const { post, loading, error, data } = usePost({
     url: "http://localhost:3001/filmsPost",
   });
-
+  
+  console.log(data);
+  
   const openModal = () => {
     setIsOpen(!isOpen);
   };
@@ -42,7 +54,10 @@ const AddFilm = (): JSX.Element => {
     };
     post(newFilm);
     setIsOpen(false);
+    handleAddFilm();
   };
+  if (loading ) return <p>Loading...</p>;
+  if (error) return <p>Error</p>;
 
   return (
     <div>
@@ -68,14 +83,13 @@ const AddFilm = (): JSX.Element => {
               className="modal-box"
               style={{
                 color: "black",
-                background:
-                  "radial-gradient(ellipse at center ,#1a4474 10%,#090a0f 90%)",
+                background:  "#090a0f",
               }}
             >
               <h3 className="font-bold text-2xl text-red-500 mb-4">
                 Agrega una película
               </h3>
-              <form>
+              <form onSubmit={handleSubmit} className="form">
                 <div className="mb-4">
                   <label
                     htmlFor="name"
@@ -89,7 +103,7 @@ const AddFilm = (): JSX.Element => {
                     value={name}
                     placeholder="Spiderman 2"
                     onChange={handleName}
-                    className="input input-bordered w-full"
+                    className="input input-success w-full"
                   />
                 </div>
                 <div className="mb-4">
@@ -105,7 +119,7 @@ const AddFilm = (): JSX.Element => {
                     value={year}
                     placeholder="1999"
                     onChange={handleYear}
-                    className="input input-bordered w-full"
+                    className="input input-success w-full"
                   />
                 </div>
                 <div className="mb-4">
@@ -121,7 +135,7 @@ const AddFilm = (): JSX.Element => {
                     value={price}
                     placeholder= "10"
                     onChange={handlePrice}
-                    className="input input-bordered w-full"
+                    className="input input-success w-full"
                   />
                 </div>
                 <div className="mb-4">
@@ -133,7 +147,7 @@ const AddFilm = (): JSX.Element => {
                   </label>
                   <textarea
                     id="description"
-                    className="textarea textarea-bordered w-full"
+                    className="textarea textarea-success w-full"
                     value={description}
                     placeholder= "Añade tu descripción"
                     onChange={handleDescription}
@@ -151,19 +165,21 @@ const AddFilm = (): JSX.Element => {
                     id="image"
                     value={image1}
                     onChange={handleImage1}
-                    className="input input-bordered w-full"
+                    className="input input-success w-full"
                   />
                 </div>
                 <div className="modal-action">
-                  <button type="submit" onClick={handleSubmit} className="btn btn-primary">
+                  <button type="submit" onClick={handleAddFilm} className="btn btn-primary">
                     Agregar
                   </button>
+                  
                   <label
                     htmlFor="my-modal"
                     className="btn btn-active bg-red-500 hover:bg-red-600"
                   >
                     Cerrar
                   </label>
+                  {data && <p>Película agregada exitosamente.</p>}
                 </div>
               </form>
             </div>

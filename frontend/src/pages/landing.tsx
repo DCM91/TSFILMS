@@ -9,6 +9,7 @@ export default function LandingCarousel() {
   const [slide, setSlide] = useState(1);
   const [numFilmsPerSlide, setNumFilmsPerSlide] = useState(5);
 
+
   useEffect(() => {
     function updateNumFilmsPerSlide() {
       const width = window.innerWidth;
@@ -33,6 +34,7 @@ export default function LandingCarousel() {
     return () => window.removeEventListener('resize', updateNumFilmsPerSlide);
   }, []);
 
+
   if (loading || data.length === 0) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
@@ -51,7 +53,7 @@ export default function LandingCarousel() {
   };
 
   return (
-    <div style={{  padding: '1rem' }}>
+    <div style={{  padding: '0' }}>
       <h1 className="text-2xl font-bold text-red-400">Filmoteca</h1>
 
       <div className="carousel w-full">
