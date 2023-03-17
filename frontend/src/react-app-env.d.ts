@@ -1,6 +1,6 @@
 /// <reference types="react-scripts" />
 export interface Movie {
-    id: number;
+    id?: number;
     name: string;
     image1: string;
     year: string;
