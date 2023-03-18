@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useFetch } from '../utils/useFetch';
-import AddFilm from '../components/AddFilm';
+import AddFilm from './AddFilm';
 import { Movie } from '../react-app-env';
 
 
@@ -60,13 +60,7 @@ export default function LandingCarousel() {
       <div className="carousel w-full">
         <div id={`slide${slide}`} className="carousel-item relative w-full">
           <div className="carousel carousel-center rounded-t-lg">
-            {films.filter((film: Movie) => film.type === "film").map((film: {
-                id: React.Key | null | undefined;
-                image1: string | undefined;
-                name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
-                year: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
-                price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
-               }) => (
+            {films.map((film: Movie) => (
                 
               <div key={film.id} className="text-white font-medium ">
                 <img
@@ -77,6 +71,8 @@ export default function LandingCarousel() {
                 <h3>{film.name}</h3>
                 <p>Año: {film.year}</p>
                 <p>Precio: {film.price}€</p>
+              
+                {film.type === "film" ? <p>Película</p>: <p>Serie</p> }
               </div>
             ))}
           </div>

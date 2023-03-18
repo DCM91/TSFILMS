@@ -88,6 +88,7 @@ const AddFilm = (): JSX.Element => {
     <div>
       <button
         style={{ margin: "1rem" }}
+        
         className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg shadow-md"
         onClick={() => setIsOpen(true)}
       >
@@ -98,18 +99,21 @@ const AddFilm = (): JSX.Element => {
         <>
           <input
             type="checkbox"
-            id="my-modal"
+            id="my-modal-6"
             className="modal-toggle"
             checked={isOpen}
             onChange={() => setIsOpen(false)}
+            style={{ width: "70%", height: "80%", maxHeight: "none", overflow: "auto" }} 
           />
-          <div className="modal">
+          <div className="modal modal-bottom sm:modal-middle" >
             <div
               className="modal-box"
               style={{
                 color: "black",
                 background:  "#090a0f",
-                overflowY: "hidden"
+                overflow  : "auto",
+                position: "fixed",
+                maxHeight: "fit-content"
               }}
             >
               <h3 className="font-bold text-2xl text-red-500 mb-4">
@@ -132,7 +136,6 @@ const AddFilm = (): JSX.Element => {
                     onChange={handleChange}
                     className="input input-success w-full"
                   />
-                  {name === '' && <p className="text-red-500">Required</p>}
                 </div>
                 <div className="mb-4">
                   <label
@@ -149,7 +152,7 @@ const AddFilm = (): JSX.Element => {
                     onChange={handleChange}
                     className="input input-success w-full"
                   />
-                  {year === '' && <p className="text-red-500">Required</p>}
+                  
                 </div>
                 <div className="mb-4">
                   <label
@@ -166,7 +169,6 @@ const AddFilm = (): JSX.Element => {
                     onChange={handleChange}
                     className="input input-success w-full"
                   />
-                  {price === '' && <p className="text-red-500">Required</p>}
                 </div>
                 <div className="mb-4">
                   <label
@@ -197,7 +199,6 @@ const AddFilm = (): JSX.Element => {
                     onChange={handleChange}
                     className="input input-success w-full"
                   />
-                  {image1 === '' && <p className="text-red-500">Required</p>}
                 </div>
                 <div id="my-form" className="modal-action">
                   {data ? (
@@ -209,7 +210,7 @@ const AddFilm = (): JSX.Element => {
                   )}
                   <label
                     onClick={handleAddFilm}
-                    htmlFor="my-modal"
+                    htmlFor="my-modal-6"
                     className="btn btn-active bg-red-500 hover:bg-red-600"
                   >
                     Cerrar

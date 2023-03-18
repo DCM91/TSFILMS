@@ -1,6 +1,6 @@
 import HeaderLanding from './components/headerLanding';
-import LandingCarousel from './pages/FilmsCarousel';
-import SeriesCarousel from './pages/SeriesCarousel';
+import LandingCarousel from './components/FilmsCarousel';
+import { Footer } from './components/Footer';
 
 
 function App() {
@@ -13,9 +13,10 @@ function App() {
         <LandingCarousel  />
       </section>
       <section>
-        <SeriesCarousel />
       </section>
-
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
