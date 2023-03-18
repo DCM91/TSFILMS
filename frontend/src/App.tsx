@@ -1,6 +1,7 @@
 import HeaderLanding from './components/headerLanding';
 import LandingCarousel from './components/FilmsCarousel';
 import { Footer } from './components/Footer';
+import Films from './components/FetchAll';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <LandingCarousel  />
       </section>
       <section>
+        <Films/>
       </section>
       <footer>
         <Footer />
