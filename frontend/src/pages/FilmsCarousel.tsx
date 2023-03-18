@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useFetch } from '../utils/useFetch';
 import AddFilm from '../components/AddFilm';
+import { Movie } from '../react-app-env';
 
 
 
 export default function LandingCarousel() {
-  const { data, loading, error } = useFetch('http://localhost:3001/films');
+  const { data, loading, error } = useFetch('http://localhost:3001/films',);
   const [slide, setSlide] = useState(1);
   const [numFilmsPerSlide, setNumFilmsPerSlide] = useState(5);
 
@@ -54,12 +55,19 @@ export default function LandingCarousel() {
 
   return (
     <div style={{  padding: '0' }}>
-      <h1 className="text-2xl font-bold text-red-400">Filmoteca</h1>
+      <h1 className="text-2xl font-bold text-red-400" style={{ margin: "1rem" }}>Filmoteca</h1>
 
       <div className="carousel w-full">
         <div id={`slide${slide}`} className="carousel-item relative w-full">
           <div className="carousel carousel-center rounded-t-lg">
-            {films.map((film: { id: React.Key | null | undefined; image1: string | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; year: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => (
+            {films.filter((film: Movie) => film.type === "film").map((film: {
+                id: React.Key | null | undefined;
+                image1: string | undefined;
+                name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
+                year: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
+                price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined;
+               }) => (
+                
               <div key={film.id} className="text-white font-medium ">
                 <img
                   src={film.image1}

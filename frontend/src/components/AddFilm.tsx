@@ -14,6 +14,7 @@ const AddFilm = (): JSX.Element => {
 
   const { post, loading, error, data } = usePost({
     url: "http://localhost:3001/filmsPost",
+    
   });
 
   const handleAddFilm =  () => {
@@ -32,6 +33,7 @@ const AddFilm = (): JSX.Element => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = event.target;
     switch (id) {
+
       case "name":
         setName(value);
         break;
@@ -55,6 +57,7 @@ const AddFilm = (): JSX.Element => {
     setIsLoading(true);
     try {
       const newFilm = {
+        type: 'film',
         name,
         year,
         price: parseFloat(price),
@@ -196,7 +199,7 @@ const AddFilm = (): JSX.Element => {
                   />
                   {image1 === '' && <p className="text-red-500">Required</p>}
                 </div>
-                <div className="modal-action">
+                <div id="my-form" className="modal-action">
                   {data ? (
                     <button className="btn loading bg-orange-500 hover:bg-orange-600">loading</button>
                   ) : (
@@ -205,6 +208,7 @@ const AddFilm = (): JSX.Element => {
                     </button>
                   )}
                   <label
+                    onClick={handleAddFilm}
                     htmlFor="my-modal"
                     className="btn btn-active bg-red-500 hover:bg-red-600"
                   >

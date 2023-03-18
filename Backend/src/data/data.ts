@@ -4,6 +4,7 @@ export const films : Movie[]=[
 
     {
         id: 0,
+        type: "film",
         name: "El Padrino",
         year: "1972",
         price: 20,
@@ -12,6 +13,7 @@ export const films : Movie[]=[
     },
     {
         id: 1,
+        type: "film",
         name: "El Padrino II",
         year: "1974",
         price: 25,
@@ -19,7 +21,8 @@ export const films : Movie[]=[
         description: "Continuación de la historia de los Corleone por medio de dos historias paralelas: la elección de Michael como jefe de los negocios familiares y los orígenes del patriarca, Don Vito Corleone, primero en su Sicilia natal y posteriormente en Estados Unidos, donde, empezando desde abajo, llegó a ser un poderosísimo jefe de la mafia de Nueva York."
     },
     {
-        id: 2,
+        id: 2,        
+        type: "film",
         name: "El Padrino III",
         year: "1990",
         price: 35,
@@ -28,11 +31,21 @@ export const films : Movie[]=[
     },
     {
         name: "Spiderman",
+        type: "film",
         year: "2002",
         price: 44,
         image1: "https://es.web.img2.acsta.net/medias/nmedia/18/90/04/41/20078157.jpg",
         description: "Spider-Man (conocida en Hispanoamérica como El Hombre Araña) es una película de superhéroes estadounidense de 2002 basada en el personaje del mismo nombre de Marvel Comics. Dirigida por Sam Raimi a partir de un guion de David Koepp, es la primera entrega de la trilogía de Spider-Man de Raimi y está protagonizada por Tobey Maguire como el personaje principal, junto a Willem Dafoe, Kirsten Dunst, James Franco, Cliff Robertson y Rosemary Harris. La película narra la historia del origen de Spider-Man y su carrera temprana de superhéroe. Después de ser mordido por una araña alterada genéticamente, el adolescente marginado Peter Parker desarrolla habilidades sobrehumanas similares a las de una araña y adopta una identidad de superhéroe enmascarado para luchar contra el crimen y la injusticia en la ciudad de Nueva York, enfrentándose al siniestro Duende Verde (Dafoe) en el proceso.",
         id: 4
+    },
+    {
+        name: "Lost",
+        type: "serie",
+        year: "2010",
+        price: 33,
+        image1: "https://m.media-amazon.com/images/M/MV5BNzhlY2E5NDUtYjJjYy00ODg3LWFkZWQtYTVmMzU4ZWZmOWJkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg",
+        description: "El vuelo 815 se estrella en una isla desierta, exuberante y misteriosa. Enseguida, los sobrevivientes deben encontrar la forma de adaptarse al nuevo ambiente, a la vez que descubren un extraño sistema de seguridad, refugios subterráneos y un violento grupo de supervivientes",
+        id: 5
     }
 ]
 	

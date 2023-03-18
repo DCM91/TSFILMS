@@ -1,5 +1,7 @@
 import HeaderLanding from './components/headerLanding';
-import LandingCarousel from './pages/landing';
+import LandingCarousel from './pages/FilmsCarousel';
+import SeriesCarousel from './pages/SeriesCarousel';
+
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
         <LandingCarousel  />
       </section>
       <section>
-        <LandingCarousel  />
+        <SeriesCarousel />
       </section>
 
     </div>
