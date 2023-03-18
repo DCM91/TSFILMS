@@ -1,4 +1,5 @@
 export interface Movie {
+    type: "film" | "serie";
     id: number;
     name: string;
     image1: string;

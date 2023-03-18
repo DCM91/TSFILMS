@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Movie } from "../react-app-env";
 
-export const useFetch = (url: string) => {
+export const useFetch = (url: string,) => {
   const [data, setData] = useState<Movie[] | any>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);

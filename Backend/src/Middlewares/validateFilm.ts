@@ -23,6 +23,9 @@ const validateFilm = (req: CustomRequest, res: Response, next: NextFunction) => 
   if (!film.name || film.name.trim().length === 0) {
     res.status(400).send({ message: 'name required' });
   }
+  if (!film.type) {
+    res.status(400).send({ message: 'type required' });
+  }
   if (!film.image1 || film.image1.trim().length === 0) {
     res.status(400).send({ message: 'image1 required' });
   }
