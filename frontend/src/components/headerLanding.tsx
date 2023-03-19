@@ -2,13 +2,20 @@ import React from 'react'
 
 export default function HeaderLanding() {
   return (
-    <div className="relative py-24 px-4" >
-      <div className="z-20 relative text-white container mx-auto">
-        <h1 style={{textAlign: "center", marginTop: "-4rem"}} className="text-5xl font-bold text-orange-500">Typing the Cinema</h1>
+    <>
+      <div className="inset-0 container mx-auto">
+        <h1 
+          style={{
+            textAlign: "center",
+            animation: "gradient-fade 1s ease-in-out infinite",
+          }}
+          className="text-8xl pt-4 pb-10 z-10 font-bold bg-gradient-to-r from-orange-500 to-red-500 text-transparent bg-clip-text">
+            Typing the Cinema
+        </h1>
       </div>
-      <div className="absolute inset-0 h-auto z-10">
-        <img src="https://www.viva-media.ca/wp-content/uploads/header-culture-cinema.jpg" alt="" className="h-full w-full object-fit-cover"/>
+      <div>
+       <img src="https://www.viva-media.ca/wp-content/uploads/header-culture-cinema.jpg" alt="" className=" w-full"/>
       </div>
-    </div>
+    </>
   )
 }

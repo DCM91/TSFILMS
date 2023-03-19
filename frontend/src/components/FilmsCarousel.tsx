@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useFetch } from '../utils/useFetch';
-import AddFilm from './AddFilm';
 import { Movie } from '../react-app-env';
-
-
+import { MdFavorite } from "react-icons/md";
 
 export default function LandingCarousel() {
   const { data, loading, error } = useFetch('http://localhost:3001/films',);
@@ -14,7 +12,9 @@ export default function LandingCarousel() {
   useEffect(() => {
     function updateNumFilmsPerSlide() {
       const width = window.innerWidth;
-      if (width >= 1850) {
+      if (width >= 2850) {
+        setNumFilmsPerSlide(25);
+      }else if (width >= 1850) {
         setNumFilmsPerSlide(12);
       } else if (width >= 1450) {
         setNumFilmsPerSlide(9);
@@ -54,9 +54,15 @@ export default function LandingCarousel() {
   };
 
   return (
-    <div style={{  padding: '0' }}>
-      <h1 className="text-2xl font-bold text-red-400" style={{ margin: "1rem" }}>Filmoteca</h1>
-
+    <div className='pb-4'>
+      <div>
+        <h1 
+          className="text-3xl font-sans font-bold text-red-400 w-100 pt-6 pb-3" 
+          style={{ margin: "1rem", display:"inline-flex" }}
+          >
+            <MdFavorite className='my-1 '/> &nbsp; Las Favoritas
+         </h1>
+      </div>
       <div className="carousel w-full">
         <div id={`slide${slide}`} className="carousel-item relative w-full">
           <div className="carousel carousel-center rounded-t-lg">
@@ -70,7 +76,6 @@ export default function LandingCarousel() {
                 />
                 <h3>{film.name}</h3>
                 <p>Año: {film.year}</p>
-                <p>Precio: {film.price}€</p>
               
                 {film.type === "film" ? <p>Película</p>: <p>Serie</p> }
               </div>
@@ -93,10 +98,6 @@ export default function LandingCarousel() {
             </button>
           </div>
         </div>
-      </div>
-
-      <div>
-        <AddFilm />
       </div>
     </div>
   );
