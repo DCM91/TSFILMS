@@ -63,6 +63,7 @@ const AddFilm = (): JSX.Element => {
         price: parseFloat(price),
         description,
         image1,
+        favorite: false,
       };
       await post(newFilm);
       if (error) {

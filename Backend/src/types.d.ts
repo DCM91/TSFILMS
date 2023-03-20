@@ -6,5 +6,6 @@ export interface Movie {
     year: string;
     price: number;
     description: string;
+    favorite: boolean;
   }
   

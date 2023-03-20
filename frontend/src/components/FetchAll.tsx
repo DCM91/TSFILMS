@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useFetch } from "../utils/useFetch";
 import { Movie } from "../react-app-env";
 import { RiFilmFill } from "react-icons/ri";
 import AddFilm from "./AddFilm";
+import { MdFavorite } from "react-icons/md";
 
 
 
@@ -10,46 +12,62 @@ import AddFilm from "./AddFilm";
 export default function Films() {
   const { data, loading, error } = useFetch("http://localhost:3001/films");
   const films = data.allFilms;
+  
   if (loading || data.length === 0) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
   return (
     <div
-    className="col-span-5 row-span-5"
+    className=""
  
     >
-    <h1 className="flex text-5xl w-100 p-2 px-4 font-bold bg-gradient-to-r from-red-500 to-yellow-500 text-white"><RiFilmFill className="text-black p-1 mr-4 text-6xl -rotate-45 -backdrop-hue-rotate-30" />Filmoteca</h1>
-     {"COMPONENTE FILTROOOOOOOOOOOOOOO "}
-     <AddFilm />
+      <div>
+        <h1 className="flex text-5xl w-100 p-1 px-2 font-bold bg-gradient-to-r from-red-500 to-yellow-500 text-white"><RiFilmFill className="text-black p-1 mr-4 text-6xl -rotate-45 -backdrop-hue-rotate-30" />Filmoteca</h1>
+        {"COMPONENTE FILTROOOOOOOOOOOOOOO "}
+        <AddFilm />
+      </div>
+
+
+    <div className="flex flex-wrap place-content-center">
       {films.map((film: Movie) => (
         <div
           key={film.id}
-          className="card-compact bg-gray-700 shadow-xl "
-          style={{  textOverflow:"ellipsis",  width: "30rem", height:"40rem", backgroundColor:"#000" }}
+          className="card w-100 h-80 card-side m-1 mt-4  bg-gray-900 shadow-md glass "
         >
           {" "}
-          {/* Add div styles */}
-          <figure className="px-10 pt-10">
-          <img 
-            className="card-body"
+  
+          <figure className=" w-40 h-full ">
+            <img 
             src={film.image1} 
             alt={film.name} 
-            style={{ height:"25rem"}}
+            className="h-full"
+            
 
             />
-            </figure>
-            {" "}
-          <div className="card-body" >
-            <h2 className="card-title">{film.name}</h2>{" "}
-            {/* <p className="text-gray-700 text-base" style={{height:"5rem", overflow:"hidden", textOverflow:"ellipsis"}}>{film.description}</p>{" "} */}
-          </div>
-          <div className="card-actions justify-end" style={{margin:".8rem"}}>
-            <div className="badge badge-warning">{film.type}</div> 
-            <div className="badge badge-warning">{film.year}</div> 
+          </figure>
 
+
+          <div className="block justify-between">
+            <div className="card-title w-40 pt-3 text-center" >
+              <h2 className="w-full" >{film.name}</h2>{" "}
             </div>
+          
+            <div className="grid w-full h-30 pt-5 p-2  place-content-start" >
+              <div className="badge badge-error p-1 text-black font-bold">{film.type}</div> <br/>
+              <div className="badge badge-error p-1 text-black font-bold">año {film.year}</div> 
+            </div>
+            <div className="grid w-100 mt-8 place-content-end pr-3 ">
+              <a role="button" className="btn text-2xl text-black font-extrabold bg-yellow-400 transition duration-500 hover:bg-yellow-600 ">+ INFO</a>
+            </div>
+            <div className="grid w-full place-content-end p-2">
+            {film.favorite ? <button className="mt-16 mr-2 content-end badge bg-red-700 hover:scale-125"><MdFavorite/></button > : <button  className="mt-16 mr-2 content-end badge hover:scale-125"><MdFavorite/></button >}
+            </div>
+
+
+          </div>
         </div>
       ))}
     </div>
+  </div>
   );
 }

@@ -39,7 +39,7 @@ export default function LandingCarousel() {
   if (loading || data.length === 0) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
-  const films = data.allFilms.slice((slide - 1) * numFilmsPerSlide, slide * numFilmsPerSlide);
+  const films:[] = data.allFilms.filter((film: Movie) => film.favorite).slice((slide - 1) * numFilmsPerSlide, slide * numFilmsPerSlide);
 
   const previousSlide = () => {
     if (slide > 1) {
@@ -57,8 +57,8 @@ export default function LandingCarousel() {
     <div className='pb-4'>
       <div>
         <h1 
-          className="text-3xl font-sans font-bold text-red-400 w-100 pt-6 pb-3" 
-          style={{ margin: "1rem", display:"inline-flex" }}
+          className="text-3xl font-sans font-bold text-red-400 w-100 pb-3" 
+          style={{  display:"inline-flex" }}
           >
             <MdFavorite className='my-1 '/> &nbsp; Las Favoritas
          </h1>

@@ -6,15 +6,17 @@ export const films : Movie[]=[
         id: 0,
         type: "film",
         name: "El Padrino",
+        favorite: true,
         year: "1972",
         price: 20,
-        image1: "https://1.bp.blogspot.com/-wCquqP6lxX8/XoI9YZZqawI/AAAAAAAAqRk/d-6FEP2u9fclc2D4FDjJWtSlK_kOTPNRgCNcBGAsYHQ/s640/el-padrino.jpg",
+        image1: "https://cartelera.elpais.com/assets/uploads/2018/11/12120508/C_04445.jpg",
         description: "Don Vito Corleone, conocido dentro de los círculos del hampa como 'El Padrino', es el patriarca de una de las cinco familias que ejercen el mando de la Cosa Nostra en Nueva York en los años cuarenta. Don Corleone tiene cuatro hijos: una chica, Connie, y tres varones; Sonny, Michael y Fredo. Cuando el Padrino reclina intervenir en el negocio de estupefacientes, empieza una cruenta lucha de violentos episodios entre las distintas familias del crimen organizado."
     },
     {
         id: 1,
         type: "film",
         name: "El Padrino II",
+        favorite: true,
         year: "1974",
         price: 25,
         image1: "https://1.bp.blogspot.com/-4bbnfSjO5t0/XQp-1Cc1hwI/AAAAAAAAMM8/aorJYsQQGdsMjijpY_lGbigkCVtRtx7lgCLcBGAs/s1600/MV5BMDM1YzUyY2UtMDM1ZC00OTRhLWIxNTktNzA4Mzg3ODlhNmZhL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTMxMjgxMzA%2540._V1_SY1000_CR0%252C0%252C666%252C1000_AL_.jpg",
@@ -23,6 +25,7 @@ export const films : Movie[]=[
     {
         id: 2,        
         type: "film",
+        favorite: false,
         name: "El Padrino III",
         year: "1990",
         price: 35,
@@ -32,6 +35,7 @@ export const films : Movie[]=[
     {
         name: "Spiderman",
         type: "film",
+        favorite: false,
         year: "2002",
         price: 44,
         image1: "https://es.web.img2.acsta.net/medias/nmedia/18/90/04/41/20078157.jpg",
@@ -41,6 +45,7 @@ export const films : Movie[]=[
     {
         name: "Lost",
         type: "serie",
+        favorite: true,
         year: "2010",
         price: 33,
         image1: "https://m.media-amazon.com/images/M/MV5BNzhlY2E5NDUtYjJjYy00ODg3LWFkZWQtYTVmMzU4ZWZmOWJkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg",
