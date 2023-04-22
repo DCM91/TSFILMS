@@ -14,7 +14,7 @@ export default function HeaderLanding() {
         </h1>
       </div>
       <div className='scale-y-75'>
-       <img src="https://www.viva-media.ca/wp-content/uploads/header-culture-cinema.jpg" alt="" className=" w-full h-85"/>
+       <img src="https://www.viva-media.ca/wp-content/uploads/header-culture-cinema.jpg" alt="" className=" w-full h-64"/>
       </div>
     </>
   )
